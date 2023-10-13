@@ -14,7 +14,6 @@ type Props = {
     }
 }
 
-
 type DurationError = {
     status: boolean;
     message: string;
@@ -35,7 +34,7 @@ function fetcher(url: string) {
 
 function Page({ params: { id } }: Props) {
     const router = useRouter();
-    const { data, error, isLoading } = useSWR(`http://localhost:5000/api/movies/${id}`, fetcher);
+    const { data, error, isLoading } = useSWR(`https://ryan-be-new.vercel.app/api/movies/${id}`, fetcher);
     const [isSaving, setIsSaving] = useState(false);
     const { register, handleSubmit, watch, formState: { errors: formErrors }, setValue } = useForm<FormType>();
     const [duration, setDuration] = useState("");
