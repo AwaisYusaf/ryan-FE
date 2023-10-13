@@ -8,7 +8,7 @@ async function fetchAllMovies(queryString: string) {
 }
 
 export default async function Home({ searchParams }: { searchParams: any }) {
-  const { query, page } = searchParams;
+  const { query, page, sort } = searchParams;
   let movies: any[] = [];
 
   let queryString = query ? `?q=${query}` : "";
@@ -19,8 +19,11 @@ export default async function Home({ searchParams }: { searchParams: any }) {
     queryString = `?page=${page ? page : "1"}`;
   }
 
-  movies = await fetchAllMovies(queryString);
+  if (sort) {
+    queryString = queryString + `&sort=${sort}`;
+  }
 
+  movies = await fetchAllMovies(queryString);
 
   return (
     <main>
