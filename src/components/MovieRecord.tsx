@@ -10,7 +10,7 @@ function MovieRecord({ movie }: Props) {
 
     const handleDelete = async () => {
         setIsDeleting(true);
-        const res = await fetch(`http://127.0.0.1:5000/api/movies/${movie.id}`, {
+        const res = await fetch(`https://ryan-be-new.vercel.app/api/movies/${movie.id}`, {
             method: 'DELETE'
         })
         if (res.status === 200) {

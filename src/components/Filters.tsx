@@ -33,7 +33,7 @@ function Filters({ }: Props) {
 
     const downloadCSV = () => {
         setShowDownloadDropDown(false);
-        fetch('http://localhost:5000/api/movies/download-csv')
+        fetch('https://ryan-be-new.vercel.app/api/movies/download-csv')
             .then((response) => {
                 return response.blob();
             })
@@ -52,7 +52,7 @@ function Filters({ }: Props) {
 
     function downloadTXT() {
         setShowDownloadDropDown(false);
-        fetch('http://localhost:5000/api/movies/download-txt')
+        fetch('https://ryan-be-new.vercel.app/api/movies/download-txt')
             .then((response) => {
                 return response.blob();
             })
